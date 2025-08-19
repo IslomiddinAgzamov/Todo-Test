@@ -23,6 +23,7 @@ final class TodoListViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     private func setupUI() {
+        searchBar.showsCancelButton = true
         searchBar.delegate = self
         view.addSubview(searchBar)
         view.addSubview(tableView)
@@ -63,6 +64,10 @@ final class TodoListViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard indexPath.row < viewModel.displayedTodos.count else {
+            return UITableViewCell()
+        }
+        
         let item = viewModel.displayedTodos[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         var config = cell.defaultContentConfiguration()
@@ -88,6 +93,10 @@ final class TodoListViewController: UIViewController, UITableViewDelegate, UITab
     // MARK: - Search
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         viewModel.search(query: searchText)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
     }
 }
 

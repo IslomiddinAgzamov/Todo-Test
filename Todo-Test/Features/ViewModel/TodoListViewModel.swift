@@ -100,3 +100,14 @@ final class TodoListViewModel {
         return status
     }
 }
+
+#if DEBUG
+extension TodoListViewModel {
+    func testInjectData(_ todos: [TodoItem]) {
+        allTodos = todos
+        filteredTodos = todos
+        displayedTodos.removeAll()
+        currentPage = 0
+    }
+}
+#endif

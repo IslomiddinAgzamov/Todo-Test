@@ -78,8 +78,10 @@ final class TodoListViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let item = viewModel.displayedTodos[indexPath.row]
-        navigationController?.pushViewController(TodoDetailViewController(item: item), animated: true)
+        if indexPath.row < viewModel.displayedTodos.count {
+            let item = viewModel.displayedTodos[indexPath.row]
+            navigationController?.pushViewController(TodoDetailViewController(item: item), animated: true)
+        }
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

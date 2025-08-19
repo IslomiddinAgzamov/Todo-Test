@@ -69,7 +69,12 @@ final class TodoListViewModel {
     }
     
     func loadNextPage() {
-        guard currentPage * pageSize < filteredTodos.count else { return }
+        guard currentPage * pageSize < filteredTodos.count else {
+            displayedTodos = filteredTodos
+            onUpdate?()
+            return
+        }
+        
         let start = currentPage * pageSize
         let end = min(start + pageSize, filteredTodos.count)
         displayedTodos.append(contentsOf: filteredTodos[start..<end])

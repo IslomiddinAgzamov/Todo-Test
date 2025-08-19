@@ -53,11 +53,6 @@
 			path = "Todo-TestTests";
 			sourceTree = "<group>";
 		};
-		C0CADF1A2E54CC830058036B /* Todo-TestUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "Todo-TestUITests";
-			sourceTree = "<group>";
-		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +85,6 @@
 			children = (
 				C0CADEF92E54CC810058036B /* Todo-Test */,
 				C0CADF102E54CC820058036B /* Todo-TestTests */,
-				C0CADF1A2E54CC830058036B /* Todo-TestUITests */,
 				C0CADEF82E54CC810058036B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -165,9 +159,6 @@
 			);
 			dependencies = (
 				C0CADF192E54CC830058036B /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				C0CADF1A2E54CC830058036B /* Todo-TestUITests */,
 			);
 			name = "Todo-TestUITests";
 			packageProductDependencies = (
